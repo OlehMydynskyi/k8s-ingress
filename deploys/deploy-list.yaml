@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: list
+spec:
+  selector:
+    matchLabels:
+      app: list
+  template:
+    metadata:
+      labels:
+        app: list
+    spec:
+      containers:
+      - name: list
+        image: olehmydynskyi/list:1.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: list
+spec:
+  type: LoadBalancer
+  selector:
+    app: list
+  ports:
+  - port: 7070
+    targetPort: 80
+
