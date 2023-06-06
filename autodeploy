@@ -1,0 +1,23 @@
+#!/bin/bash
+#Apply or delete k8s configurations
+
+#Functions
+apply_config () {
+    kubectl apply -f deploys/
+    kubectl apply -f ingress.yaml
+}
+
+delete_config () {
+    kubectl delete -f deploys/
+    kubectl delete -f ingress.yaml
+}
+
+#Main
+case $1 in
+    apply)
+        apply_config ;;
+    delete)
+        delete_config ;;
+    *)
+        echo "error: must specify one of apply or delete" ;;
+esac
