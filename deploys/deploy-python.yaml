@@ -26,7 +26,6 @@ kind: Service
 metadata:
   name: python-home-page
 spec:
-  type: LoadBalancer
   selector:
     app: python-home-page
   ports:

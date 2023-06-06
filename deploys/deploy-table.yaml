@@ -24,9 +24,8 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: table
+  name: table-service
 spec:
-  type: LoadBalancer
   selector:
     app: table
   ports:

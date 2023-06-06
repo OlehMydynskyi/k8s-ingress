@@ -24,9 +24,8 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: text
+  name: text-service
 spec:
-  type: LoadBalancer
   selector:
     app: text
   ports:
